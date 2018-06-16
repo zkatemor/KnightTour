@@ -63,41 +63,36 @@ namespace KnightsTour
             Brush brush;
             Rectangle rect = new Rectangle();
             Graphics gfx = e.Graphics;
+            Color color;
 
             if (column >= 10)
                 cellSize = 40;
             else cellSize = 50;
 
-            for (int i = 1; i <= row; i++)
+            for (int i = 0; i < row; i++)
             {
-                for (int j = 1; j <= column; j++)
+                for (int j = 0; j < column; j++)
                 {
                     if (isBlack)
                     {
-                        brush = new SolidBrush(Color.Silver);
-                        rect = new Rectangle(i * cellSize - cellSize + 1, j * cellSize - cellSize + 1, cellSize, cellSize);
-                        coordinates[i - 1, j - 1] = rect.Location;
-                        cellColor[i - 1, j - 1] = Color.Silver;
-                        gfx.DrawRectangle(pen, rect);
-                        gfx.FillRectangle(brush, rect);
-                        if (field[i - 1, j - 1] != 0)
-                            gfx.DrawString(field[i - 1, j - 1].ToString(), new Font("Arial", 10), new SolidBrush(Color.Black),
-                                coordinates[i - 1, j - 1]);
-                        isBlack = false;
+                        color = Color.Silver;
                     }
                     else
                     {
-                        brush = new SolidBrush(Color.White);
-                        rect = new Rectangle(i * cellSize - cellSize + 1, j * cellSize - cellSize + 1, cellSize, cellSize);
-                        coordinates[i - 1, j - 1] = rect.Location;
-                        cellColor[i - 1, j - 1] = Color.White;
-                        gfx.DrawRectangle(pen, rect);
-                        gfx.FillRectangle(brush, rect);
-                        if (field[i - 1, j - 1] != 0)
-                            gfx.DrawString(field[i - 1, j - 1].ToString(), new Font("Arial", 10), new SolidBrush(Color.Black),
-                                coordinates[i - 1, j - 1]);
-                        isBlack = true;
+                        color = Color.White;
                     }
+
+                    brush = new SolidBrush(color);
+                    rect = new Rectangle(i * cellSize + 1, j * cellSize + 1, cellSize, cellSize);
+                    coordinates[i, j] = rect.Location;
+                    cellColor[i, j] = color;
+                    gfx.DrawRectangle(pen, rect);
+                    gfx.FillRectangle(brush, rect);
+                    if (field[i, j] != 0)
+                        gfx.DrawString(field[i, j].ToString(), new Font("Arial", 10), new SolidBrush(Color.Black),
+                            coordinates[i, j]);
+
+                    isBlack = !isBlack;
                 }
                 if (column % 2 == 0)
                     isBlack = !isBlack;
@@ -109,7 +104,6 @@ namespace KnightsTour
                     field[x, y] = count;
                 }
                 gfx.DrawString(field[x, y].ToString(), new Font("Arial", 10), new SolidBrush(Color.Black), coordinates[x, y]);
-                // field[x, y] = count;
             }
         }
 
