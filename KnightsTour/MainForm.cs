@@ -33,6 +33,13 @@ namespace KnightsTour
                 if (result == DialogResult.Yes)
                     сброситьРешениеToolStripMenuItem_Click(sender, e);
             }
+            else if ((row != setting.X || column != setting.Y) && setting.CheckChange && count != row * column - 1)
+            {
+                DialogResult result = MessageBox.Show("Алгоритм не завершен! Сбросить решение и применить настройки?",
+                    "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                    сброситьРешениеToolStripMenuItem_Click(sender, e);
+            }
 
             if (setting.CheckChange && checkStart)
             {
@@ -106,40 +113,50 @@ namespace KnightsTour
         {
             if (timerButton.Checked == true)
                 timer.Stop();
-            if (count != row * column - 1)
-            {
-                count++;
-                next = solve.NextMove(startX, startY, checkStart);
-                if (next.X == startY && next.Y == startX)
-                {
-                    MessageBox.Show("Алгоритм завершен! Решение не найдено!",
-                        "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    count = row * column - 1;
-                    checkSolve = false;
-                }
-                else
-                {
-                    Rectangle horse = new Rectangle(new Point(coordinates[next.Y, next.X].X + pictureBox.Location.X,
-                    coordinates[next.Y, next.X].Y + pictureBox.Location.Y), new Size(size - 2, size - 2));
-                    checkStart = false;
 
-                    horsePictureBox.Size = horse.Size;
-                    horsePictureBox.Location = horse.Location;
-                    horsePictureBox.BringToFront();
-                    horsePictureBox.BackColor = cellColor[next.Y, next.X];
-                    horsePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                }
+            if (horsePictureBox.Visible == false)
+            {
+                MessageBox.Show("Чтобы начать обход, поставьте коня на стартовую позицию!",
+                   "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                timerButton.Checked = false;
-                if (checkSolve)
-                    MessageBox.Show("Алгоритм завершен!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (count != row * column - 1)
+                {
+                    count++;
+                    next = solve.NextMove(startX, startY, checkStart);
+                    if (next.X == startY && next.Y == startX)
+                    {
+                        MessageBox.Show("Алгоритм завершен! Решение не найдено!",
+                            "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        count = row * column - 1;
+                        checkSolve = false;
+                    }
+                    else
+                    {
+                        Rectangle horse = new Rectangle(new Point(coordinates[next.Y, next.X].X + pictureBox.Location.X,
+                        coordinates[next.Y, next.X].Y + pictureBox.Location.Y), new Size(size - 2, size - 2));
+                        checkStart = false;
+
+                        horsePictureBox.Size = horse.Size;
+                        horsePictureBox.Location = horse.Location;
+                        horsePictureBox.BringToFront();
+                        horsePictureBox.BackColor = cellColor[next.Y, next.X];
+                        horsePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                }
                 else
-                    MessageBox.Show("Алгоритм завершен! Решение не найдено!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (timerButton.Checked == true)
-                    timer.Stop();
+                {
+                    timerButton.Checked = false;
+                    if (checkSolve)
+                        MessageBox.Show("Алгоритм завершен!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Алгоритм завершен! Решение не найдено!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (timerButton.Checked == true)
+                        timer.Stop();
+                }
             }
+
             if (timerButton.Checked == true)
                 timer.Start();
         }
@@ -168,7 +185,7 @@ namespace KnightsTour
             if (horsePictureBox.Visible == false)
             {
                 MessageBox.Show("Чтобы решить задачу, поставьте коня на стартовую позицию!",
-                    "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
