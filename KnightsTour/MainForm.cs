@@ -33,7 +33,7 @@ namespace KnightsTour
                 if (result == DialogResult.Yes)
                     сброситьРешениеToolStripMenuItem_Click(sender, e);
             }
-            else if ((row != setting.X || column != setting.Y) && setting.CheckChange && count != row * column - 1)
+            else if ((row != setting.X || column != setting.Y) && setting.CheckChange && count != row * column - 1 && !checkStart)
             {
                 DialogResult result = MessageBox.Show("Алгоритм не завершен! Сбросить решение и применить настройки?",
                     "Информация", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -54,7 +54,10 @@ namespace KnightsTour
                 count = 0; checkStart = true;
                 pictureBox_Paint(sender, new PaintEventArgs(pictureBox.CreateGraphics(),
                     new Rectangle(pictureBox.Location, pictureBox.Size)));
-                StartKnightPosition();
+                horsePictureBox.Visible = false;
+
+                widthToolStripStatusLabel.Text = "Высота: " + row.ToString();
+                heightToolStripStatusLabel.Text = "Ширина: " + column.ToString();
             }
             else if (row == setting.X && column == setting.Y && !checkStart)
             {
@@ -77,7 +80,26 @@ namespace KnightsTour
 
         private void timerButton_Click(object sender, EventArgs e)
         {
-            timer.Start();
+            if (horsePictureBox.Visible == false)
+            {
+                MessageBox.Show("Чтобы начать обход, поставьте коня на стартовую позицию!",
+                   "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                timerButton.Checked = false;
+            }
+            else
+            {
+                timer.Start();
+                if (timerButton.Checked == true)
+                {
+                    stopTimerBitton.Enabled = true;
+                    остановитьАвтоматическийОбходToolStripMenuItem.Enabled = true;
+                }
+                else
+                {
+                    stopTimerBitton.Enabled = false;
+                    остановитьАвтоматическийОбходToolStripMenuItem.Enabled = false;
+                }
+            }
         }
 
         private void автоматическийОбходДоскиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,27 +114,45 @@ namespace KnightsTour
 
         private void сброситьРешениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            count = 0;
-            checkStart = true;
-            checkSolve = true;
-            timerButton.Checked = false;
-            автоматическийОбходДоскиToolStripMenuItem.Checked = false;
-            timer.Stop();
-            solve = new WarnsdorfsRule(row, column);
-            chessBoard = new ChessBoard(row, column);
-            coordinates = chessBoard.GetCoordinates;
-            cellColor = chessBoard.GetColors;
-            size = chessBoard.GetCellSize;
-            solve = new WarnsdorfsRule(row, column);
-            pictureBox_Paint(sender, new PaintEventArgs(pictureBox.CreateGraphics(),
-                new Rectangle(pictureBox.Location, pictureBox.Size)));
-            horsePictureBox.Visible = false;
+            if (!checkStart)
+            {
+                count = 0;
+                checkStart = true;
+                checkSolve = true;
+                timerButton.Checked = false;
+                автоматическийОбходДоскиToolStripMenuItem.Checked = false;
+                timer.Stop();
+                solve = new WarnsdorfsRule(row, column);
+                chessBoard = new ChessBoard(row, column);
+                coordinates = chessBoard.GetCoordinates;
+                cellColor = chessBoard.GetColors;
+                size = chessBoard.GetCellSize;
+                solve = new WarnsdorfsRule(row, column);
+                pictureBox_Paint(sender, new PaintEventArgs(pictureBox.CreateGraphics(),
+                    new Rectangle(pictureBox.Location, pictureBox.Size)));
+                horsePictureBox.Visible = false;
+                moveToolStripStatusLabel.Text = "Ход: " + count.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Решения, которое можно сбросить, нет!",
+                   "Внимание!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
             if (timerButton.Checked == true)
+            {
                 timer.Stop();
+                stopTimerBitton.Enabled = true;
+                остановитьАвтоматическийОбходToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                stopTimerBitton.Enabled = false;
+                остановитьАвтоматическийОбходToolStripMenuItem.Enabled = false;
+            }
 
             if (horsePictureBox.Visible == false)
             {
@@ -143,15 +183,20 @@ namespace KnightsTour
                         horsePictureBox.BringToFront();
                         horsePictureBox.BackColor = cellColor[next.Y, next.X];
                         horsePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                        moveToolStripStatusLabel.Text = "Ход: " + count.ToString();
                     }
                 }
                 else
                 {
                     timerButton.Checked = false;
+                    moveToolStripStatusLabel.Text = "Ход: " + (count + 1).ToString();
+
                     if (checkSolve)
                         MessageBox.Show("Алгоритм завершен!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show("Алгоритм завершен! Решение не найдено!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Алгоритм завершен! Решение не найдено!", "Информация", MessageBoxButtons.OK, 
+                            MessageBoxIcon.Information);
                     if (timerButton.Checked == true)
                         timer.Stop();
                 }
@@ -163,9 +208,12 @@ namespace KnightsTour
 
         private void stopTimerBitton_Click(object sender, EventArgs e)
         {
-            timer.Stop();
-            timerButton.Checked = false;
-            автоматическийОбходДоскиToolStripMenuItem.Checked = false;
+            if (timerButton.Checked == true)
+            {
+                timer.Stop();
+                timerButton.Checked = false;
+                автоматическийОбходДоскиToolStripMenuItem.Checked = false;
+            }
         }
 
         private void остановитьАвтоматическийОбходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,6 +229,18 @@ namespace KnightsTour
         private void solveButton_Click(object sender, EventArgs e)
         {
             stopTimerBitton_Click(sender, e);
+
+            if (timerButton.Checked == true)
+            {
+                timer.Stop();
+                stopTimerBitton.Enabled = true;
+                остановитьАвтоматическийОбходToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                stopTimerBitton.Enabled = false;
+                остановитьАвтоматическийОбходToolStripMenuItem.Enabled = false;
+            }
 
             if (horsePictureBox.Visible == false)
             {
@@ -204,6 +264,7 @@ namespace KnightsTour
                         startX = next.Y; startY = next.X;
                     }
 
+                    moveToolStripStatusLabel.Text = "Ход: " +  (count + 1).ToString();
                     checkStart = false;
                     Rectangle horse = new Rectangle(new Point(coordinates[startX, startY].X + pictureBox.Location.X,
                       coordinates[startX, startY].Y + pictureBox.Location.Y), new Size(size - 2, size - 2));
@@ -307,29 +368,6 @@ namespace KnightsTour
                 }
         }
 
-        void StartKnightPosition()
-        {
-            startX = 0; startY = 0;
-            Rectangle horse = new Rectangle(new Point(coordinates[0, 0].X + pictureBox.Location.X,
-            coordinates[0, 0].Y + pictureBox.Location.Y), new Size(size - 2, size - 2));
-            horsePictureBox.Size = horse.Size;
-            horsePictureBox.Location = horse.Location;
-            horsePictureBox.BringToFront();
-            horsePictureBox.BackColor = cellColor[0, 0];
-            horsePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-
-        void KnightPosition()
-        {
-            Rectangle horse = new Rectangle(new Point(coordinates[startX, startY].X + pictureBox.Location.X,
-                            coordinates[startX, startY].Y + pictureBox.Location.Y), new Size(size - 2, size - 2));
-            horsePictureBox.Size = horse.Size;
-            horsePictureBox.Location = horse.Location;
-            horsePictureBox.BringToFront();
-            horsePictureBox.BackColor = cellColor[startX, startY];
-            horsePictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             chessBoard.Paint(e, count, startX, startY);
@@ -338,12 +376,12 @@ namespace KnightsTour
             if (size == 50)
             {
                 this.Width = row * size + 18;
-                this.Height = column * size + size + 40;
+                this.Height = column * size + size + 64;
             }
             else
             {
                 this.Width = row * size + size - 22;
-                this.Height = column * size + size * 2 + 10;
+                this.Height = column * size + size * 2 + 34;
             }
 
             this.CenterToScreen();

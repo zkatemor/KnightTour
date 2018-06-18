@@ -37,6 +37,7 @@
             this.остановитьАвтоматическийОбходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сброситьРешениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.решитьЗадачуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.режимИгрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обАлгоритмеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,18 +49,22 @@
             this.resetButton = new System.Windows.Forms.ToolStripButton();
             this.solveButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.gameButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.settingButton = new System.Windows.Forms.ToolStripButton();
             this.informationButton = new System.Windows.Forms.ToolStripButton();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.horsePictureBox = new System.Windows.Forms.PictureBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.режимИгрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gameButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.widthToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.heightToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.moveToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.horsePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -106,6 +111,7 @@
             // 
             // остановитьАвтоматическийОбходToolStripMenuItem
             // 
+            this.остановитьАвтоматическийОбходToolStripMenuItem.Enabled = false;
             this.остановитьАвтоматическийОбходToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("остановитьАвтоматическийОбходToolStripMenuItem.Image")));
             this.остановитьАвтоматическийОбходToolStripMenuItem.Name = "остановитьАвтоматическийОбходToolStripMenuItem";
             this.остановитьАвтоматическийОбходToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
@@ -127,6 +133,13 @@
             this.решитьЗадачуToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
             this.решитьЗадачуToolStripMenuItem.Text = "Решить задачу";
             this.решитьЗадачуToolStripMenuItem.Click += new System.EventHandler(this.решитьЗадачуToolStripMenuItem_Click);
+            // 
+            // режимИгрыToolStripMenuItem
+            // 
+            this.режимИгрыToolStripMenuItem.Name = "режимИгрыToolStripMenuItem";
+            this.режимИгрыToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.режимИгрыToolStripMenuItem.Text = "Режим игры";
+            this.режимИгрыToolStripMenuItem.Click += new System.EventHandler(this.режимИгрыToolStripMenuItem_Click);
             // 
             // настройкиToolStripMenuItem
             // 
@@ -203,6 +216,7 @@
             // stopTimerBitton
             // 
             this.stopTimerBitton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.stopTimerBitton.Enabled = false;
             this.stopTimerBitton.Image = ((System.Drawing.Image)(resources.GetObject("stopTimerBitton.Image")));
             this.stopTimerBitton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.stopTimerBitton.Name = "stopTimerBitton";
@@ -234,6 +248,21 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // gameButton
+            // 
+            this.gameButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.gameButton.Image = ((System.Drawing.Image)(resources.GetObject("gameButton.Image")));
+            this.gameButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.gameButton.Name = "gameButton";
+            this.gameButton.Size = new System.Drawing.Size(23, 22);
+            this.gameButton.Text = "Режим игры";
+            this.gameButton.Click += new System.EventHandler(this.gameButton_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // settingButton
             // 
@@ -281,33 +310,55 @@
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
             this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // режимИгрыToolStripMenuItem
+            // statusStrip
             // 
-            this.режимИгрыToolStripMenuItem.Name = "режимИгрыToolStripMenuItem";
-            this.режимИгрыToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.режимИгрыToolStripMenuItem.Text = "Режим игры";
-            this.режимИгрыToolStripMenuItem.Click += new System.EventHandler(this.режимИгрыToolStripMenuItem_Click);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.widthToolStripStatusLabel,
+            this.heightToolStripStatusLabel,
+            this.moveToolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 437);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(484, 24);
+            this.statusStrip.SizingGrip = false;
+            this.statusStrip.TabIndex = 4;
+            this.statusStrip.Text = "statusStrip1";
             // 
-            // gameButton
+            // widthToolStripStatusLabel
             // 
-            this.gameButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.gameButton.Image = ((System.Drawing.Image)(resources.GetObject("gameButton.Image")));
-            this.gameButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.gameButton.Name = "gameButton";
-            this.gameButton.Size = new System.Drawing.Size(23, 22);
-            this.gameButton.Text = "Режим игры";
-            this.gameButton.Click += new System.EventHandler(this.gameButton_Click);
+            this.widthToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.widthToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.widthToolStripStatusLabel.Name = "widthToolStripStatusLabel";
+            this.widthToolStripStatusLabel.Size = new System.Drawing.Size(63, 19);
+            this.widthToolStripStatusLabel.Text = "Высота: 8";
             // 
-            // toolStripSeparator2
+            // heightToolStripStatusLabel
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.heightToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.heightToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.heightToolStripStatusLabel.Name = "heightToolStripStatusLabel";
+            this.heightToolStripStatusLabel.Size = new System.Drawing.Size(68, 19);
+            this.heightToolStripStatusLabel.Text = "Ширина: 8";
+            // 
+            // moveToolStripStatusLabel
+            // 
+            this.moveToolStripStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.moveToolStripStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.moveToolStripStatusLabel.Name = "moveToolStripStatusLabel";
+            this.moveToolStripStatusLabel.Size = new System.Drawing.Size(43, 19);
+            this.moveToolStripStatusLabel.Text = "Ход: 0";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.horsePictureBox);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.toolStrip);
@@ -325,6 +376,8 @@
             this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.horsePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,6 +411,10 @@
         private System.Windows.Forms.ToolStripMenuItem режимИгрыToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton gameButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel widthToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel heightToolStripStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel moveToolStripStatusLabel;
     }
 }
 
