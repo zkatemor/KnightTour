@@ -94,13 +94,18 @@
             this.cell14 = new System.Windows.Forms.Button();
             this.cell04 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.backMoveButton = new System.Windows.Forms.ToolStripButton();
+            this.screenButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // cell00
             // 
             this.cell00.BackColor = System.Drawing.Color.White;
             this.cell00.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell00.Location = new System.Drawing.Point(1, 59);
+            this.cell00.Location = new System.Drawing.Point(0, 62);
             this.cell00.Name = "cell00";
             this.cell00.Size = new System.Drawing.Size(70, 70);
             this.cell00.TabIndex = 0;
@@ -111,7 +116,7 @@
             // 
             this.cell10.BackColor = System.Drawing.Color.Silver;
             this.cell10.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell10.Location = new System.Drawing.Point(69, 59);
+            this.cell10.Location = new System.Drawing.Point(68, 62);
             this.cell10.Name = "cell10";
             this.cell10.Size = new System.Drawing.Size(70, 70);
             this.cell10.TabIndex = 1;
@@ -122,7 +127,7 @@
             // 
             this.cell20.BackColor = System.Drawing.Color.White;
             this.cell20.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell20.Location = new System.Drawing.Point(137, 59);
+            this.cell20.Location = new System.Drawing.Point(136, 62);
             this.cell20.Name = "cell20";
             this.cell20.Size = new System.Drawing.Size(70, 70);
             this.cell20.TabIndex = 2;
@@ -133,7 +138,7 @@
             // 
             this.cell30.BackColor = System.Drawing.Color.Silver;
             this.cell30.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell30.Location = new System.Drawing.Point(205, 59);
+            this.cell30.Location = new System.Drawing.Point(204, 62);
             this.cell30.Name = "cell30";
             this.cell30.Size = new System.Drawing.Size(70, 70);
             this.cell30.TabIndex = 3;
@@ -144,7 +149,7 @@
             // 
             this.cell40.BackColor = System.Drawing.Color.White;
             this.cell40.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell40.Location = new System.Drawing.Point(272, 59);
+            this.cell40.Location = new System.Drawing.Point(271, 62);
             this.cell40.Name = "cell40";
             this.cell40.Size = new System.Drawing.Size(70, 70);
             this.cell40.TabIndex = 4;
@@ -155,7 +160,7 @@
             // 
             this.cell50.BackColor = System.Drawing.Color.Silver;
             this.cell50.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell50.Location = new System.Drawing.Point(340, 59);
+            this.cell50.Location = new System.Drawing.Point(339, 62);
             this.cell50.Name = "cell50";
             this.cell50.Size = new System.Drawing.Size(70, 70);
             this.cell50.TabIndex = 5;
@@ -166,7 +171,7 @@
             // 
             this.cell60.BackColor = System.Drawing.Color.White;
             this.cell60.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell60.Location = new System.Drawing.Point(408, 59);
+            this.cell60.Location = new System.Drawing.Point(407, 62);
             this.cell60.Name = "cell60";
             this.cell60.Size = new System.Drawing.Size(70, 70);
             this.cell60.TabIndex = 6;
@@ -177,7 +182,7 @@
             // 
             this.cell70.BackColor = System.Drawing.Color.Silver;
             this.cell70.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell70.Location = new System.Drawing.Point(476, 59);
+            this.cell70.Location = new System.Drawing.Point(475, 62);
             this.cell70.Name = "cell70";
             this.cell70.Size = new System.Drawing.Size(70, 70);
             this.cell70.TabIndex = 7;
@@ -188,7 +193,7 @@
             // 
             this.cell11.BackColor = System.Drawing.Color.White;
             this.cell11.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell11.Location = new System.Drawing.Point(69, 127);
+            this.cell11.Location = new System.Drawing.Point(68, 130);
             this.cell11.Name = "cell11";
             this.cell11.Size = new System.Drawing.Size(70, 70);
             this.cell11.TabIndex = 9;
@@ -199,7 +204,7 @@
             // 
             this.cell01.BackColor = System.Drawing.Color.Silver;
             this.cell01.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell01.Location = new System.Drawing.Point(1, 127);
+            this.cell01.Location = new System.Drawing.Point(0, 130);
             this.cell01.Name = "cell01";
             this.cell01.Size = new System.Drawing.Size(70, 70);
             this.cell01.TabIndex = 8;
@@ -210,7 +215,7 @@
             // 
             this.cell31.BackColor = System.Drawing.Color.White;
             this.cell31.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell31.Location = new System.Drawing.Point(205, 127);
+            this.cell31.Location = new System.Drawing.Point(204, 130);
             this.cell31.Name = "cell31";
             this.cell31.Size = new System.Drawing.Size(70, 70);
             this.cell31.TabIndex = 11;
@@ -221,7 +226,7 @@
             // 
             this.cell21.BackColor = System.Drawing.Color.Silver;
             this.cell21.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell21.Location = new System.Drawing.Point(137, 127);
+            this.cell21.Location = new System.Drawing.Point(136, 130);
             this.cell21.Name = "cell21";
             this.cell21.Size = new System.Drawing.Size(70, 70);
             this.cell21.TabIndex = 10;
@@ -232,7 +237,7 @@
             // 
             this.cell51.BackColor = System.Drawing.Color.White;
             this.cell51.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell51.Location = new System.Drawing.Point(340, 127);
+            this.cell51.Location = new System.Drawing.Point(339, 130);
             this.cell51.Name = "cell51";
             this.cell51.Size = new System.Drawing.Size(70, 70);
             this.cell51.TabIndex = 13;
@@ -243,7 +248,7 @@
             // 
             this.cell41.BackColor = System.Drawing.Color.Silver;
             this.cell41.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell41.Location = new System.Drawing.Point(272, 127);
+            this.cell41.Location = new System.Drawing.Point(271, 130);
             this.cell41.Name = "cell41";
             this.cell41.Size = new System.Drawing.Size(70, 70);
             this.cell41.TabIndex = 12;
@@ -254,7 +259,7 @@
             // 
             this.cell71.BackColor = System.Drawing.Color.White;
             this.cell71.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell71.Location = new System.Drawing.Point(476, 127);
+            this.cell71.Location = new System.Drawing.Point(475, 130);
             this.cell71.Name = "cell71";
             this.cell71.Size = new System.Drawing.Size(70, 70);
             this.cell71.TabIndex = 15;
@@ -265,7 +270,7 @@
             // 
             this.cell61.BackColor = System.Drawing.Color.Silver;
             this.cell61.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell61.Location = new System.Drawing.Point(408, 127);
+            this.cell61.Location = new System.Drawing.Point(407, 130);
             this.cell61.Name = "cell61";
             this.cell61.Size = new System.Drawing.Size(70, 70);
             this.cell61.TabIndex = 14;
@@ -276,7 +281,7 @@
             // 
             this.cell13.BackColor = System.Drawing.Color.White;
             this.cell13.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell13.Location = new System.Drawing.Point(69, 262);
+            this.cell13.Location = new System.Drawing.Point(68, 265);
             this.cell13.Name = "cell13";
             this.cell13.Size = new System.Drawing.Size(70, 70);
             this.cell13.TabIndex = 25;
@@ -287,7 +292,7 @@
             // 
             this.cell03.BackColor = System.Drawing.Color.Silver;
             this.cell03.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell03.Location = new System.Drawing.Point(1, 262);
+            this.cell03.Location = new System.Drawing.Point(0, 265);
             this.cell03.Name = "cell03";
             this.cell03.Size = new System.Drawing.Size(70, 70);
             this.cell03.TabIndex = 24;
@@ -298,7 +303,7 @@
             // 
             this.cell12.BackColor = System.Drawing.Color.Silver;
             this.cell12.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell12.Location = new System.Drawing.Point(69, 194);
+            this.cell12.Location = new System.Drawing.Point(68, 197);
             this.cell12.Name = "cell12";
             this.cell12.Size = new System.Drawing.Size(70, 70);
             this.cell12.TabIndex = 17;
@@ -309,7 +314,7 @@
             // 
             this.cell02.BackColor = System.Drawing.Color.White;
             this.cell02.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell02.Location = new System.Drawing.Point(1, 194);
+            this.cell02.Location = new System.Drawing.Point(0, 197);
             this.cell02.Name = "cell02";
             this.cell02.Size = new System.Drawing.Size(70, 70);
             this.cell02.TabIndex = 16;
@@ -320,7 +325,7 @@
             // 
             this.cell33.BackColor = System.Drawing.Color.White;
             this.cell33.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell33.Location = new System.Drawing.Point(205, 262);
+            this.cell33.Location = new System.Drawing.Point(204, 265);
             this.cell33.Name = "cell33";
             this.cell33.Size = new System.Drawing.Size(70, 70);
             this.cell33.TabIndex = 29;
@@ -331,7 +336,7 @@
             // 
             this.cell23.BackColor = System.Drawing.Color.Silver;
             this.cell23.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell23.Location = new System.Drawing.Point(137, 262);
+            this.cell23.Location = new System.Drawing.Point(136, 265);
             this.cell23.Name = "cell23";
             this.cell23.Size = new System.Drawing.Size(70, 70);
             this.cell23.TabIndex = 28;
@@ -342,7 +347,7 @@
             // 
             this.cell32.BackColor = System.Drawing.Color.Silver;
             this.cell32.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell32.Location = new System.Drawing.Point(205, 194);
+            this.cell32.Location = new System.Drawing.Point(204, 197);
             this.cell32.Name = "cell32";
             this.cell32.Size = new System.Drawing.Size(70, 70);
             this.cell32.TabIndex = 27;
@@ -353,7 +358,7 @@
             // 
             this.cell22.BackColor = System.Drawing.Color.White;
             this.cell22.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell22.Location = new System.Drawing.Point(137, 194);
+            this.cell22.Location = new System.Drawing.Point(136, 197);
             this.cell22.Name = "cell22";
             this.cell22.Size = new System.Drawing.Size(70, 70);
             this.cell22.TabIndex = 26;
@@ -364,7 +369,7 @@
             // 
             this.cell53.BackColor = System.Drawing.Color.White;
             this.cell53.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell53.Location = new System.Drawing.Point(340, 262);
+            this.cell53.Location = new System.Drawing.Point(339, 265);
             this.cell53.Name = "cell53";
             this.cell53.Size = new System.Drawing.Size(70, 70);
             this.cell53.TabIndex = 33;
@@ -375,7 +380,7 @@
             // 
             this.cell43.BackColor = System.Drawing.Color.Silver;
             this.cell43.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell43.Location = new System.Drawing.Point(272, 262);
+            this.cell43.Location = new System.Drawing.Point(271, 265);
             this.cell43.Name = "cell43";
             this.cell43.Size = new System.Drawing.Size(70, 70);
             this.cell43.TabIndex = 32;
@@ -386,7 +391,7 @@
             // 
             this.cell52.BackColor = System.Drawing.Color.Silver;
             this.cell52.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell52.Location = new System.Drawing.Point(340, 194);
+            this.cell52.Location = new System.Drawing.Point(339, 197);
             this.cell52.Name = "cell52";
             this.cell52.Size = new System.Drawing.Size(70, 70);
             this.cell52.TabIndex = 31;
@@ -397,7 +402,7 @@
             // 
             this.cell42.BackColor = System.Drawing.Color.White;
             this.cell42.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell42.Location = new System.Drawing.Point(272, 194);
+            this.cell42.Location = new System.Drawing.Point(271, 197);
             this.cell42.Name = "cell42";
             this.cell42.Size = new System.Drawing.Size(70, 70);
             this.cell42.TabIndex = 30;
@@ -408,7 +413,7 @@
             // 
             this.cell73.BackColor = System.Drawing.Color.White;
             this.cell73.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell73.Location = new System.Drawing.Point(476, 262);
+            this.cell73.Location = new System.Drawing.Point(475, 265);
             this.cell73.Name = "cell73";
             this.cell73.Size = new System.Drawing.Size(70, 70);
             this.cell73.TabIndex = 37;
@@ -419,7 +424,7 @@
             // 
             this.cell63.BackColor = System.Drawing.Color.Silver;
             this.cell63.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell63.Location = new System.Drawing.Point(408, 262);
+            this.cell63.Location = new System.Drawing.Point(407, 265);
             this.cell63.Name = "cell63";
             this.cell63.Size = new System.Drawing.Size(70, 70);
             this.cell63.TabIndex = 36;
@@ -430,7 +435,7 @@
             // 
             this.cell72.BackColor = System.Drawing.Color.Silver;
             this.cell72.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell72.Location = new System.Drawing.Point(476, 194);
+            this.cell72.Location = new System.Drawing.Point(475, 197);
             this.cell72.Name = "cell72";
             this.cell72.Size = new System.Drawing.Size(70, 70);
             this.cell72.TabIndex = 35;
@@ -441,7 +446,7 @@
             // 
             this.cell62.BackColor = System.Drawing.Color.White;
             this.cell62.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell62.Location = new System.Drawing.Point(408, 194);
+            this.cell62.Location = new System.Drawing.Point(407, 197);
             this.cell62.Name = "cell62";
             this.cell62.Size = new System.Drawing.Size(70, 70);
             this.cell62.TabIndex = 34;
@@ -452,7 +457,7 @@
             // 
             this.cell77.BackColor = System.Drawing.Color.White;
             this.cell77.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell77.Location = new System.Drawing.Point(476, 531);
+            this.cell77.Location = new System.Drawing.Point(475, 534);
             this.cell77.Name = "cell77";
             this.cell77.Size = new System.Drawing.Size(70, 70);
             this.cell77.TabIndex = 69;
@@ -463,7 +468,7 @@
             // 
             this.cell67.BackColor = System.Drawing.Color.Silver;
             this.cell67.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell67.Location = new System.Drawing.Point(408, 531);
+            this.cell67.Location = new System.Drawing.Point(407, 534);
             this.cell67.Name = "cell67";
             this.cell67.Size = new System.Drawing.Size(70, 70);
             this.cell67.TabIndex = 68;
@@ -474,7 +479,7 @@
             // 
             this.cell76.BackColor = System.Drawing.Color.Silver;
             this.cell76.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell76.Location = new System.Drawing.Point(476, 463);
+            this.cell76.Location = new System.Drawing.Point(475, 466);
             this.cell76.Name = "cell76";
             this.cell76.Size = new System.Drawing.Size(70, 70);
             this.cell76.TabIndex = 67;
@@ -485,7 +490,7 @@
             // 
             this.cell66.BackColor = System.Drawing.Color.White;
             this.cell66.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell66.Location = new System.Drawing.Point(408, 463);
+            this.cell66.Location = new System.Drawing.Point(407, 466);
             this.cell66.Name = "cell66";
             this.cell66.Size = new System.Drawing.Size(70, 70);
             this.cell66.TabIndex = 66;
@@ -496,7 +501,7 @@
             // 
             this.cell57.BackColor = System.Drawing.Color.White;
             this.cell57.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell57.Location = new System.Drawing.Point(340, 531);
+            this.cell57.Location = new System.Drawing.Point(339, 534);
             this.cell57.Name = "cell57";
             this.cell57.Size = new System.Drawing.Size(70, 70);
             this.cell57.TabIndex = 65;
@@ -507,7 +512,7 @@
             // 
             this.cell47.BackColor = System.Drawing.Color.Silver;
             this.cell47.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell47.Location = new System.Drawing.Point(272, 531);
+            this.cell47.Location = new System.Drawing.Point(271, 534);
             this.cell47.Name = "cell47";
             this.cell47.Size = new System.Drawing.Size(70, 70);
             this.cell47.TabIndex = 64;
@@ -518,7 +523,7 @@
             // 
             this.cell56.BackColor = System.Drawing.Color.Silver;
             this.cell56.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell56.Location = new System.Drawing.Point(340, 463);
+            this.cell56.Location = new System.Drawing.Point(339, 466);
             this.cell56.Name = "cell56";
             this.cell56.Size = new System.Drawing.Size(70, 70);
             this.cell56.TabIndex = 63;
@@ -529,7 +534,7 @@
             // 
             this.cell46.BackColor = System.Drawing.Color.White;
             this.cell46.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell46.Location = new System.Drawing.Point(272, 463);
+            this.cell46.Location = new System.Drawing.Point(271, 466);
             this.cell46.Name = "cell46";
             this.cell46.Size = new System.Drawing.Size(70, 70);
             this.cell46.TabIndex = 62;
@@ -540,7 +545,7 @@
             // 
             this.cell37.BackColor = System.Drawing.Color.White;
             this.cell37.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell37.Location = new System.Drawing.Point(205, 531);
+            this.cell37.Location = new System.Drawing.Point(204, 534);
             this.cell37.Name = "cell37";
             this.cell37.Size = new System.Drawing.Size(70, 70);
             this.cell37.TabIndex = 61;
@@ -551,7 +556,7 @@
             // 
             this.cell27.BackColor = System.Drawing.Color.Silver;
             this.cell27.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell27.Location = new System.Drawing.Point(137, 531);
+            this.cell27.Location = new System.Drawing.Point(136, 534);
             this.cell27.Name = "cell27";
             this.cell27.Size = new System.Drawing.Size(70, 70);
             this.cell27.TabIndex = 60;
@@ -562,7 +567,7 @@
             // 
             this.cell36.BackColor = System.Drawing.Color.Silver;
             this.cell36.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell36.Location = new System.Drawing.Point(205, 463);
+            this.cell36.Location = new System.Drawing.Point(204, 466);
             this.cell36.Name = "cell36";
             this.cell36.Size = new System.Drawing.Size(70, 70);
             this.cell36.TabIndex = 59;
@@ -573,7 +578,7 @@
             // 
             this.cell26.BackColor = System.Drawing.Color.White;
             this.cell26.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell26.Location = new System.Drawing.Point(137, 463);
+            this.cell26.Location = new System.Drawing.Point(136, 466);
             this.cell26.Name = "cell26";
             this.cell26.Size = new System.Drawing.Size(70, 70);
             this.cell26.TabIndex = 58;
@@ -584,7 +589,7 @@
             // 
             this.cell17.BackColor = System.Drawing.Color.White;
             this.cell17.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell17.Location = new System.Drawing.Point(69, 531);
+            this.cell17.Location = new System.Drawing.Point(68, 534);
             this.cell17.Name = "cell17";
             this.cell17.Size = new System.Drawing.Size(70, 70);
             this.cell17.TabIndex = 57;
@@ -595,7 +600,7 @@
             // 
             this.cell07.BackColor = System.Drawing.Color.Silver;
             this.cell07.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell07.Location = new System.Drawing.Point(1, 531);
+            this.cell07.Location = new System.Drawing.Point(0, 534);
             this.cell07.Name = "cell07";
             this.cell07.Size = new System.Drawing.Size(70, 70);
             this.cell07.TabIndex = 56;
@@ -606,7 +611,7 @@
             // 
             this.cell16.BackColor = System.Drawing.Color.Silver;
             this.cell16.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell16.Location = new System.Drawing.Point(69, 463);
+            this.cell16.Location = new System.Drawing.Point(68, 466);
             this.cell16.Name = "cell16";
             this.cell16.Size = new System.Drawing.Size(70, 70);
             this.cell16.TabIndex = 55;
@@ -617,7 +622,7 @@
             // 
             this.cell06.BackColor = System.Drawing.Color.White;
             this.cell06.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell06.Location = new System.Drawing.Point(1, 463);
+            this.cell06.Location = new System.Drawing.Point(0, 466);
             this.cell06.Name = "cell06";
             this.cell06.Size = new System.Drawing.Size(70, 70);
             this.cell06.TabIndex = 54;
@@ -628,7 +633,7 @@
             // 
             this.cell75.BackColor = System.Drawing.Color.White;
             this.cell75.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell75.Location = new System.Drawing.Point(476, 396);
+            this.cell75.Location = new System.Drawing.Point(475, 399);
             this.cell75.Name = "cell75";
             this.cell75.Size = new System.Drawing.Size(70, 70);
             this.cell75.TabIndex = 53;
@@ -639,7 +644,7 @@
             // 
             this.cell65.BackColor = System.Drawing.Color.Silver;
             this.cell65.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell65.Location = new System.Drawing.Point(408, 396);
+            this.cell65.Location = new System.Drawing.Point(407, 399);
             this.cell65.Name = "cell65";
             this.cell65.Size = new System.Drawing.Size(70, 70);
             this.cell65.TabIndex = 52;
@@ -650,7 +655,7 @@
             // 
             this.cell55.BackColor = System.Drawing.Color.White;
             this.cell55.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell55.Location = new System.Drawing.Point(340, 396);
+            this.cell55.Location = new System.Drawing.Point(339, 399);
             this.cell55.Name = "cell55";
             this.cell55.Size = new System.Drawing.Size(70, 70);
             this.cell55.TabIndex = 51;
@@ -661,7 +666,7 @@
             // 
             this.cell45.BackColor = System.Drawing.Color.Silver;
             this.cell45.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell45.Location = new System.Drawing.Point(272, 396);
+            this.cell45.Location = new System.Drawing.Point(271, 399);
             this.cell45.Name = "cell45";
             this.cell45.Size = new System.Drawing.Size(70, 70);
             this.cell45.TabIndex = 50;
@@ -672,7 +677,7 @@
             // 
             this.cell35.BackColor = System.Drawing.Color.White;
             this.cell35.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell35.Location = new System.Drawing.Point(205, 396);
+            this.cell35.Location = new System.Drawing.Point(204, 399);
             this.cell35.Name = "cell35";
             this.cell35.Size = new System.Drawing.Size(70, 70);
             this.cell35.TabIndex = 49;
@@ -683,7 +688,7 @@
             // 
             this.cell25.BackColor = System.Drawing.Color.Silver;
             this.cell25.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell25.Location = new System.Drawing.Point(137, 396);
+            this.cell25.Location = new System.Drawing.Point(136, 399);
             this.cell25.Name = "cell25";
             this.cell25.Size = new System.Drawing.Size(70, 70);
             this.cell25.TabIndex = 48;
@@ -694,7 +699,7 @@
             // 
             this.cell15.BackColor = System.Drawing.Color.White;
             this.cell15.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell15.Location = new System.Drawing.Point(69, 396);
+            this.cell15.Location = new System.Drawing.Point(68, 399);
             this.cell15.Name = "cell15";
             this.cell15.Size = new System.Drawing.Size(70, 70);
             this.cell15.TabIndex = 47;
@@ -705,7 +710,7 @@
             // 
             this.cell05.BackColor = System.Drawing.Color.Silver;
             this.cell05.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell05.Location = new System.Drawing.Point(1, 396);
+            this.cell05.Location = new System.Drawing.Point(0, 399);
             this.cell05.Name = "cell05";
             this.cell05.Size = new System.Drawing.Size(70, 70);
             this.cell05.TabIndex = 46;
@@ -716,7 +721,7 @@
             // 
             this.cell74.BackColor = System.Drawing.Color.Silver;
             this.cell74.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell74.Location = new System.Drawing.Point(476, 328);
+            this.cell74.Location = new System.Drawing.Point(475, 331);
             this.cell74.Name = "cell74";
             this.cell74.Size = new System.Drawing.Size(70, 70);
             this.cell74.TabIndex = 45;
@@ -727,7 +732,7 @@
             // 
             this.cell64.BackColor = System.Drawing.Color.White;
             this.cell64.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell64.Location = new System.Drawing.Point(408, 328);
+            this.cell64.Location = new System.Drawing.Point(407, 331);
             this.cell64.Name = "cell64";
             this.cell64.Size = new System.Drawing.Size(70, 70);
             this.cell64.TabIndex = 44;
@@ -738,7 +743,7 @@
             // 
             this.cell54.BackColor = System.Drawing.Color.Silver;
             this.cell54.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell54.Location = new System.Drawing.Point(340, 328);
+            this.cell54.Location = new System.Drawing.Point(339, 331);
             this.cell54.Name = "cell54";
             this.cell54.Size = new System.Drawing.Size(70, 70);
             this.cell54.TabIndex = 43;
@@ -749,7 +754,7 @@
             // 
             this.cell44.BackColor = System.Drawing.Color.White;
             this.cell44.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell44.Location = new System.Drawing.Point(272, 328);
+            this.cell44.Location = new System.Drawing.Point(271, 331);
             this.cell44.Name = "cell44";
             this.cell44.Size = new System.Drawing.Size(70, 70);
             this.cell44.TabIndex = 42;
@@ -760,7 +765,7 @@
             // 
             this.cell34.BackColor = System.Drawing.Color.Silver;
             this.cell34.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell34.Location = new System.Drawing.Point(205, 328);
+            this.cell34.Location = new System.Drawing.Point(204, 331);
             this.cell34.Name = "cell34";
             this.cell34.Size = new System.Drawing.Size(70, 70);
             this.cell34.TabIndex = 41;
@@ -771,7 +776,7 @@
             // 
             this.cell24.BackColor = System.Drawing.Color.White;
             this.cell24.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell24.Location = new System.Drawing.Point(137, 328);
+            this.cell24.Location = new System.Drawing.Point(136, 331);
             this.cell24.Name = "cell24";
             this.cell24.Size = new System.Drawing.Size(70, 70);
             this.cell24.TabIndex = 40;
@@ -782,7 +787,7 @@
             // 
             this.cell14.BackColor = System.Drawing.Color.Silver;
             this.cell14.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell14.Location = new System.Drawing.Point(69, 328);
+            this.cell14.Location = new System.Drawing.Point(68, 331);
             this.cell14.Name = "cell14";
             this.cell14.Size = new System.Drawing.Size(70, 70);
             this.cell14.TabIndex = 39;
@@ -793,7 +798,7 @@
             // 
             this.cell04.BackColor = System.Drawing.Color.White;
             this.cell04.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cell04.Location = new System.Drawing.Point(1, 328);
+            this.cell04.Location = new System.Drawing.Point(0, 331);
             this.cell04.Name = "cell04";
             this.cell04.Size = new System.Drawing.Size(70, 70);
             this.cell04.TabIndex = 38;
@@ -804,20 +809,58 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(37, 9);
+            this.label1.Location = new System.Drawing.Point(12, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(465, 39);
+            this.label1.Size = new System.Drawing.Size(523, 26);
             this.label1.TabIndex = 70;
-            this.label1.Text = "Ваша задача: обойти конём (буквой Г) по всем 64 клеткам обычной \r\nшахматной доски" +
-    " так, чтобы на каждой клетке конь мог побывать \r\nтолько один раз.\r\n";
+            this.label1.Text = "Ваша задача: обойти конём (буквой Г) по всем 64 клеткам обычной шахмат-\r\nной доск" +
+    "и так, чтобы на каждой клетке конь мог побывать только один раз.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "\"Графические файлы (*.jpg)|*.jpg|Все файлы (*.*)|*.*\"";
+            // 
+            // backMoveButton
+            // 
+            this.backMoveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.backMoveButton.Image = ((System.Drawing.Image)(resources.GetObject("backMoveButton.Image")));
+            this.backMoveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.backMoveButton.Name = "backMoveButton";
+            this.backMoveButton.Size = new System.Drawing.Size(23, 22);
+            this.backMoveButton.Text = "Назад";
+            this.backMoveButton.Click += new System.EventHandler(this.backMoveButton_Click);
+            // 
+            // screenButton
+            // 
+            this.screenButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.screenButton.Image = ((System.Drawing.Image)(resources.GetObject("screenButton.Image")));
+            this.screenButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.screenButton.Name = "screenButton";
+            this.screenButton.Size = new System.Drawing.Size(23, 22);
+            this.screenButton.Text = "Сохранить скрин формы";
+            this.screenButton.Click += new System.EventHandler(this.screenButton_Click);
+            // 
+            // toolStrip
+            // 
+            this.toolStrip.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backMoveButton,
+            this.screenButton});
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(546, 25);
+            this.toolStrip.TabIndex = 71;
+            this.toolStrip.Text = "toolStrip1";
             // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(546, 601);
+            this.ClientSize = new System.Drawing.Size(546, 604);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cell77);
             this.Controls.Add(this.cell67);
@@ -885,12 +928,14 @@
             this.Controls.Add(this.cell00);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(562, 640);
-            this.MinimumSize = new System.Drawing.Size(562, 640);
+            this.MaximumSize = new System.Drawing.Size(562, 643);
+            this.MinimumSize = new System.Drawing.Size(562, 643);
             this.Name = "GameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Мини-игра \"Ход конём\"";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameForm_FormClosing);
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -963,5 +1008,9 @@
         private System.Windows.Forms.Button cell14;
         private System.Windows.Forms.Button cell04;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripButton backMoveButton;
+        private System.Windows.Forms.ToolStripButton screenButton;
+        private System.Windows.Forms.ToolStrip toolStrip;
     }
 }
