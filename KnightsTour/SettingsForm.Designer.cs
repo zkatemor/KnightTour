@@ -261,6 +261,7 @@
             this.MaximumSize = new System.Drawing.Size(314, 376);
             this.MinimumSize = new System.Drawing.Size(314, 376);
             this.Name = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Настройки ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.groupBoxChess.ResumeLayout(false);

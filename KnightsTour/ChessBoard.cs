@@ -15,14 +15,6 @@ namespace KnightsTour
         Color[,] cellColor;
         int[,] field;
 
-        public ChessBoard()
-        {
-            row = 8;
-            column = 8;
-            coordinates = new Point[row, column];
-            field = new int[row, column];
-        }
-
         public ChessBoard(int _row, int _column)
         {
             row = _row;
@@ -111,6 +103,5 @@ namespace KnightsTour
         {
             field[x, y] = count;
         }
-
     }
 }
