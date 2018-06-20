@@ -28,8 +28,7 @@ namespace KnightsTour
             saveFileDialog.FileName = "";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string fileName = saveFileDialog.FileName;
-                pictureBox.Image.Save(fileName);
+                pictureBox.Image.Save(saveFileDialog.FileName);
                 MessageBox.Show("Информация сохранена!", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

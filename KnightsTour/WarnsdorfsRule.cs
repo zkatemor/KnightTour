@@ -154,6 +154,7 @@ namespace KnightsTour
             return next;
         }
         
+        // заполнение массива клеток
         public void FillField(int startX, int startY)
         {
             count = 0;

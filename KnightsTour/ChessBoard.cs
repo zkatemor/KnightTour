@@ -11,7 +11,7 @@ namespace KnightsTour
     // класс рисования шахматной доски
     class ChessBoard
     {
-        int row, column, cellSize;
+        int row, column, cellSize; // значние размеров доски и размера шахматной клетки
         Point[,] coordinates; // массив координат клеток
         Color[,] cellColor; // массив цвета клеток
         int[,] field; 

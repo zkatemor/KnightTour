@@ -12,9 +12,9 @@ namespace KnightsTour
 {
     public partial class MainForm : Form
     {
-        ChessBoard chessBoard; 
-        WarnsdorfsRule solve;
-        Point next;
+        ChessBoard chessBoard; // отрисовка шахматной доски
+        WarnsdorfsRule solve; // алгоритм, решающий задачу
+        Point next; // координаты следующего хода
         int row, column, size, startX, startY, count = 0;
         bool checkStart = true; // проверка начала работы алгоритма
         bool checkSolve = true; // проверка завершения алгоритма

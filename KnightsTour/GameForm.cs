@@ -13,13 +13,13 @@ namespace KnightsTour
     // режим игры
     public partial class GameForm : Form
     {
-        int[,] cells;
-        int count = 0; // счётчик ходов коня
-        int N = 8;
+        int[,] cells; // массив координат клеток
+        int count = 0; // счётчик xодов коня
+        int N = 8; // размер доски 8x8
         bool checkSolve = true; // проверка решения
-        WarnsdorfsRule game;
+        WarnsdorfsRule game; // для поиска "соседних" клеток
         Bitmap knightImage; // изображение шахматного коня
-        List<Button> cellsList;
+        List<Button> cellsList; // массив кнопок формы
 
         public GameForm()
         {

@@ -14,7 +14,7 @@ namespace KnightsTour
     public partial class SettingsForm : Form
     {
         public int X, Y, Intervl;
-        int x, y, interval;
+        int x, y, interval; // значения ширины, высоты и интервала обхода
         public bool CheckChange = false; // проверка на совершенные изменения в насройках
 
         public SettingsForm(int X, int Y, int Intervl)
