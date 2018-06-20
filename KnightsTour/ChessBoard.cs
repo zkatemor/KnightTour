@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace KnightsTour
 {
+    // класс рисования шахматной доски
     class ChessBoard
     {
         int row, column, cellSize;
-        Point[,] coordinates; // массив координат ячеек
-        Color[,] cellColor;
-        int[,] field;
+        Point[,] coordinates; // массив координат клеток
+        Color[,] cellColor; // массив цвета клеток
+        int[,] field; 
 
         public ChessBoard(int _row, int _column)
         {
@@ -48,6 +49,7 @@ namespace KnightsTour
             }
         }
 
+        // рисование доски на главной форме
         public void Paint(PaintEventArgs e, int count, int x, int y)
         {
             bool isBlack = false;

@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace KnightsTour
 {
+    // форма настроек приложения
     public partial class SettingsForm : Form
     {
         public int X, Y, Intervl;
         int x, y, interval;
-        public bool CheckChange = false;
+        public bool CheckChange = false; // проверка на совершенные изменения в насройках
 
         public SettingsForm(int X, int Y, int Intervl)
         {
@@ -28,6 +29,7 @@ namespace KnightsTour
             currentInterval.Text = "Текущий: " + stringInterval(trackBarInterval.Value);
         }
 
+        // возвращает значение интервала автоматического обхода в формате строки
         private string stringInterval(int interval)
         {
             if (interval == 1000 || interval == 2000 || interval == 3000)
@@ -40,6 +42,11 @@ namespace KnightsTour
         private void trackBarInterval_Scroll(object sender, EventArgs e)
         {
             currentInterval.Text = "Текущий: " + stringInterval(trackBarInterval.Value);
+        }
+
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void trackBarWidth_Scroll(object sender, EventArgs e)

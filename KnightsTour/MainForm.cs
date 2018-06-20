@@ -12,13 +12,14 @@ namespace KnightsTour
 {
     public partial class MainForm : Form
     {
-        ChessBoard chessBoard;
+        ChessBoard chessBoard; 
         WarnsdorfsRule solve;
         Point next;
         int row, column, size, startX, startY, count = 0;
-        bool checkStart = true, checkSolve = true;
-        Point[,] coordinates;
-        Color[,] cellColor;
+        bool checkStart = true; // проверка начала работы алгоритма
+        bool checkSolve = true; // проверка завершения алгоритма
+        Point[,] coordinates; // массив координат клеток
+        Color[,] cellColor; // массив цветов клеток
 
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -174,6 +175,7 @@ namespace KnightsTour
                     }
                     else
                     {
+                        // установка изображения шахматного коня на нужную клетку доски
                         Rectangle horse = new Rectangle(new Point(coordinates[next.Y, next.X].X + pictureBox.Location.X,
                         coordinates[next.Y, next.X].Y + pictureBox.Location.Y), new Size(size - 2, size - 2));
                         checkStart = false;
@@ -266,6 +268,7 @@ namespace KnightsTour
 
                     moveToolStripStatusLabel.Text = "Ход: " +  (count + 1).ToString();
                     checkStart = false;
+                    // установка изображения шахматного коня на нужную клетку доски
                     Rectangle horse = new Rectangle(new Point(coordinates[startX, startY].X + pictureBox.Location.X,
                       coordinates[startX, startY].Y + pictureBox.Location.Y), new Size(size - 2, size - 2));
                     horsePictureBox.Size = horse.Size;
@@ -343,6 +346,7 @@ namespace KnightsTour
             horsePictureBox.Visible = false;
         }
 
+        // "установка" коня на начальную позицию
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
         {
             horsePictureBox.Visible = true;
@@ -352,9 +356,10 @@ namespace KnightsTour
                     for (int j = 0; j < column; j++)
                     {
                         Rectangle check = new Rectangle(coordinates[i, j].X, coordinates[i, j].Y, size, size);
-
+                        // нахождение клетки, по которой было нажато ЛКМ
                         if (check.Contains(e.X, e.Y))
                         {
+                            // установка изображения шахматного коня на нужную клетку доски
                             Rectangle horse = new Rectangle(new Point(coordinates[i, j].X + pictureBox.Location.X,
                             coordinates[i, j].Y + pictureBox.Location.Y), new Size(size - 2, size - 2));
                             startX = i; startY = j;
@@ -370,9 +375,11 @@ namespace KnightsTour
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
+            // рисование доски
             chessBoard.Paint(e, count, startX, startY);
             size = chessBoard.GetCellSize;
 
+            // установка размеров главной формы в соответствии с размерами доски
             if (size == 50)
             {
                 this.Width = row * size + 18;

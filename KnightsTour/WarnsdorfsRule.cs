@@ -9,14 +9,15 @@ namespace KnightsTour
 { 
     class WarnsdorfsRule
     {
-        int width, height;
+        int width, height; 
         int[,] field;
-        int count = 0;
+        int count = 0; // счётчик ходов коня
 
+        // структура, описывающая клетку доски
         public struct Vector2 : IComparable, IEquatable<Vector2>
         {
-            public int x, y;
-            public int weight
+            public int x, y; // координаты клетки
+            public int weight // количество возможных ходов конём из этой клетки
             {
                 get; set;
             }
@@ -53,6 +54,7 @@ namespace KnightsTour
             }
         }
 
+        // массив из возможных ходов конём
         public static Vector2[] KnightMove = {
             new Vector2(1, 2),
             new Vector2(1, -2),
@@ -76,6 +78,7 @@ namespace KnightsTour
             return point.x >= 0 && point.x < width && point.y >= 0 && point.y < height;
         }
 
+        // возвращает клетки, на которые может пойти конь
         private List<Vector2> GetNeighbours(Vector2 pos)  
         {
             List<Vector2> result = new List<Vector2>();
@@ -106,6 +109,7 @@ namespace KnightsTour
             return result;
         }
 
+        // возвращает количество клеток, на которые может пойти конь
         private int GetNeighboursCount(Vector2 pos) 
         {
             int result = 0;
@@ -128,6 +132,7 @@ namespace KnightsTour
             return cells[pos.y, pos.x] != 0;
         }
 
+        // находит следующий ход коня для обхода доски
         private void NextMove(ref Vector2 temp)
         {
             List<Vector2> neighbours;
@@ -137,6 +142,7 @@ namespace KnightsTour
             temp = neighbours.OrderBy(a => a.weight).First(); 
         }
 
+        // возвращает следующий ход коня для обхода доски
         public Point NextMove(int startX, int startY, bool first)
         {
             if (first)
@@ -147,7 +153,7 @@ namespace KnightsTour
             Point next = new Point(temp.y, temp.x);
             return next;
         }
-
+        
         public void FillField(int startX, int startY)
         {
             count = 0;

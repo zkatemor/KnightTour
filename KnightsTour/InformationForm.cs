@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace KnightsTour
 {
+    // форма с информацией об алгоритме
     public partial class InformationForm : Form
     {
         public InformationForm()
@@ -21,7 +22,7 @@ namespace KnightsTour
         {
 
         }
-
+        
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog.FileName = "";

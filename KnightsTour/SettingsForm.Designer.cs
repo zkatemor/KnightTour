@@ -264,6 +264,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Настройки ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
+            this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.groupBoxChess.ResumeLayout(false);
             this.groupBoxChess.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHeight)).EndInit();

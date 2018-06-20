@@ -10,13 +10,15 @@ using System.Windows.Forms;
 
 namespace KnightsTour
 {
+    // режим игры
     public partial class GameForm : Form
     {
         int[,] cells;
-        int count = 0;
-        int N = 8; bool checkSolve = true;
+        int count = 0; // счётчик ходов коня
+        int N = 8;
+        bool checkSolve = true; // проверка решения
         WarnsdorfsRule game;
-        Bitmap knightImage;
+        Bitmap knightImage; // изображение шахматного коня
         List<Button> cellsList;
 
         public GameForm()
@@ -100,6 +102,7 @@ namespace KnightsTour
             }
         }
 
+        // сброс решения
         private void RemoveSolve()
         {
             cells = new int[N, N];
@@ -112,9 +115,11 @@ namespace KnightsTour
 
         private void cell00_Click(object sender, EventArgs e)
         {
+            // нахождение нажатой кнопки
             string cellName = (sender as Button).Name;
             Button cellXY = (Button)Controls.Find(cellName, true)[0];
 
+            // вычисление координатов клетки
             var cellIndex = cellName.Where(i => Char.IsDigit(i)).ToArray();
             int x = int.Parse(cellIndex[0].ToString());
             int y = int.Parse(cellIndex[1].ToString());
@@ -122,13 +127,14 @@ namespace KnightsTour
             RemoveKnight();
             ReturnColor();
             cells[y, x] = ++count;
+            // "установка" коня на клетку
             cellXY.BackgroundImage = knightImage;
             cellXY.BackgroundImageLayout = ImageLayout.Stretch;
             cellXY.Text = count.ToString();
             string cellString = "cell";
             WarnsdorfsRule.Vector2 cell = new WarnsdorfsRule.Vector2(x, y);
             List<WarnsdorfsRule.Vector2> neighbours = game.GetNeighbours(cell, cells);
-
+            
             if (neighbours.Count == 0 && count != N * N)
             {
                 EnabledButtons(); checkSolve = true;
@@ -152,6 +158,7 @@ namespace KnightsTour
             else
             {
                 checkSolve = false;
+                // подсветка клеток, на которые можно сделать ход конём
                 foreach (var i in neighbours)
                 {
                     cellString += i.x.ToString() + i.y.ToString();
@@ -180,6 +187,7 @@ namespace KnightsTour
             }
         }
 
+        // возвращает коня на один ход назад
         private void backMoveButton_Click(object sender, EventArgs e)
         {
             try
@@ -247,6 +255,7 @@ namespace KnightsTour
             }
         }
 
+        // делает снимок формы
         private void screenButton_Click(object sender, EventArgs e)
         {
             Bitmap screen = new Bitmap(this.Width, this.Height);
